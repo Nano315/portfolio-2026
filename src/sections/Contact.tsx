@@ -215,7 +215,7 @@ export default function Contact() {
         </p>
         <a
           id="footer-github-link"
-          href="https://github.com/Nano315"
+          href="https://github.com/Nano315/portfolio-2026"
           target="_blank"
           rel="noopener noreferrer"
           style={{

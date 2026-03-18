@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Portfolio — Valentin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personnel de développeur Full Stack, conçu pour décrocher une alternance Java Angular à Toulouse en septembre 2026.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript** + **Vite 8**
+- **Tailwind CSS v4** (via `@tailwindcss/vite`)
+- **Framer Motion** — animations et transitions
+- **tsParticles** — effet particules interactif (Hero)
 
-## React Compiler
+## Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── AmbientGlow.tsx    # Orbes violet flottants en background
+│   ├── Nav.tsx            # Navigation fixe avec glassmorphism au scroll
+│   └── SectionDivider.tsx # Séparateurs lumineux entre sections
+├── hooks/
+│   ├── useParallax.ts     # Hook scroll position (rAF optimisé)
+│   └── useReveal.ts       # Hook IntersectionObserver pour les animations
+└── sections/
+    ├── Hero.tsx           # Landing plein écran avec particules
+    ├── Projects.tsx       # Grille bento + modales + lightbox
+    ├── Skills.tsx         # Grille 2×2 de compétences
+    ├── Formation.tsx      # Timeline parcours OpenClassrooms
+    ├── About.tsx          # Section personnelle avec tilt 3D
+    └── Contact.tsx        # Coordonnées + footer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Lancer le projet
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install --legacy-peer-deps
+npm run dev
 ```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Déploiement
+
+Le projet est déployé sur **Vercel** avec build automatique à chaque push sur `main`.
