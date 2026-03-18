@@ -32,7 +32,7 @@ export default function Hero() {
     return () => clearTimeout(timer)
   }, [])
 
-  const particlesLoaded = useCallback(async (container?: Container) => {
+  const particlesLoaded = useCallback(async (_container?: Container) => {
     // Particles loaded and ready
   }, [])
 
